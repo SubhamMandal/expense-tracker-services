@@ -1,0 +1,29 @@
+{
+  "name": "expense-tracker-services",
+  "version": "1.0.0",
+  "description": "Services for a web app to manage personal expenses using express, nodejs and mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SubhamMandal/expense-tracker-services.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SubhamMandal/expense-tracker-services/issues"
+  },
+  "homepage": "https://github.com/SubhamMandal/expense-tracker-services#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
