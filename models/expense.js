@@ -24,10 +24,6 @@ const expenseSchema = new Schema({
         ref: 'User',
         required: true,
     },
-    // associatedGroup: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'Group',
-    // }
 })
 
 module.exports = mongoose.model('Expense', expenseSchema);
