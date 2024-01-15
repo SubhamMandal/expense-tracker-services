@@ -6,6 +6,7 @@ const app = express();
 const PORT = 8080;
 
 const usersRoute = require('./routes/user');
+const expenseRoute = require('./routes/expense');
 
 app.use(bodyParser.json());
 
@@ -21,6 +22,7 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/users', usersRoute);
+app.use('/expense', expenseRoute);
 
 app.use((error, req, res, next) => {
     const status = error.statusCode || 500;
