@@ -2,10 +2,13 @@
   "name": "expense-tracker-services",
   "version": "1.0.0",
   "description": "Services for a web app to manage personal expenses using express, nodejs and mongoDB",
-  "main": "index.js",
+  "main": "app.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

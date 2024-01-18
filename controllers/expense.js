@@ -18,3 +18,14 @@ exports.addExpense = async (req, res, next) => {
     // console.log(response);
     return await res.status(201).json({ message: 'Expense added successfully!', expense: response });
 }
+
+exports.allExpense = async (req, res, next) => {
+    let allExpense;
+    try {
+        allExpense = await Expense.find({creator: req.userId});
+    } catch (err) {
+        err.statusCode = 500;
+        next(err);
+    }
+    return await res.status(200).json({allExpense: allExpense});
+}
