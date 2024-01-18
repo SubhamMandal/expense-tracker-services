@@ -2,7 +2,7 @@
   "name": "expense-tracker-services",
   "version": "1.0.0",
   "description": "Services for a web app to manage personal expenses using express, nodejs and mongoDB",
-  "main": "app.js",
+  "main": "index.js",
   "engines": {
     "node": "18.x"
   },
