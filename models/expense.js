@@ -19,6 +19,10 @@ const expenseSchema = new Schema({
         type: String,
         required: true,
     },
+    associatedGroup: {
+        type: Schema.Types.ObjectId,
+        ref: 'Group'
+    },
     creator: {
         type: Schema.Types.ObjectId,
         ref: 'User',

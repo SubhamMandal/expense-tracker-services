@@ -6,6 +6,7 @@ exports.addExpense = async (req, res, next) => {
         description: req.body.description,
         date: req.body.date,
         catagory: req.body.type,
+        associatedGroup: req.body.group || null,
         creator: req.userId
     });
     let response;
