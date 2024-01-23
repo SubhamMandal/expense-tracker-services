@@ -1,4 +1,5 @@
 const Group = require('../models/group');
+const Expense = require('../models/expense');
 
 exports.addGroup = async (req, res, next) => {
     const group = new Group({
@@ -59,4 +60,16 @@ exports.joinGroup = async (req, res, next) => {
         next(err);
     }
     return await res.status(200).json({ message: message });
+}
+
+exports.groupExpense = async (req, res, next) => {
+    let groupId = req.params.groupId;
+    let expenses;
+    try {
+        expenses = await Expense.find({ associatedGroup: groupId });
+    } catch (err) {
+        err.statusCode = 500;
+        return await next(err);
+    }
+    return await res.status(200).json({ expenses: expenses });
 }

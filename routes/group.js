@@ -10,5 +10,6 @@ router.post('/add-group', isAuth, groupController.addGroup);
 router.get('/user-groups', isAuth, groupController.getUserGroup);
 router.get('/group-details/:groupId', isAuth, groupController.groupDetails);
 router.get('/join/:groupId', isAuth, groupController.joinGroup);
+router.get('/expenses/:groupId', isAuth, groupController.groupExpense);
 
 module.exports = router;
