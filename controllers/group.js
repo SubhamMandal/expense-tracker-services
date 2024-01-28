@@ -1,5 +1,6 @@
 const Group = require('../models/group');
 const Expense = require('../models/expense');
+const User = require('../models/user');
 
 exports.addGroup = async (req, res, next) => {
     const group = new Group({
@@ -33,12 +34,15 @@ exports.getUserGroup = async (req, res, next) => {
 exports.groupDetails = async (req, res, next) => {
     let groupId = req.params.groupId;
     let group;
+    let members;
     try {
         group = await Group.findOne({ _id: groupId });
+        members = await User.find({ _id: { $in: group.members } }, { username: 1 });
     } catch (err) {
         err.statusCode = 500;
         return await next(err);
     }
+    group.members = members;
     return await res.status(200).json({ groupDetails: group });
 }
 

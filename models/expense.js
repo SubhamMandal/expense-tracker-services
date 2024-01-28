@@ -28,6 +28,24 @@ const expenseSchema = new Schema({
         ref: 'User',
         required: true,
     },
+    split: {
+        type: String,
+    },
+    splitAmount: [
+        {
+            userId: {
+                type: Schema.Types.ObjectId,
+                ref: 'User',
+            },
+            amount: {
+                type: String,
+            }
+        }
+    ],
+    paidBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
 }, { timestamps: true })
 
 module.exports = mongoose.model('Expense', expenseSchema);

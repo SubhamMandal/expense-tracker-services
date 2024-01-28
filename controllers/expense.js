@@ -9,6 +9,11 @@ exports.addExpense = async (req, res, next) => {
         associatedGroup: req.body.group || null,
         creator: req.userId
     });
+    if (req.body.group) {
+        expense.split = req.body.split;
+        expense.splitAmount = req.body.splitAmount;
+        expense.paidBy = req.body.paidBy;
+    }
     let response;
     try {
         response = await expense.save();
