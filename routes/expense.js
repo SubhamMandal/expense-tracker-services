@@ -8,5 +8,6 @@ const router = express.Router();
 
 router.post('/add-expense', isAuth, expenseController.addExpense);
 router.get('/all-expense', isAuth, expenseController.allExpense);
+router.get('/:expenseId', expenseController.expenseDetails);
 
 module.exports = router;

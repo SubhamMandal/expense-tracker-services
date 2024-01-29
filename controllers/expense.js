@@ -28,10 +28,22 @@ exports.addExpense = async (req, res, next) => {
 exports.allExpense = async (req, res, next) => {
     let allExpense;
     try {
-        allExpense = await Expense.find({creator: req.userId});
+        allExpense = await Expense.find({ creator: req.userId });
     } catch (err) {
         err.statusCode = 500;
-        next(err);
+        return next(err);
     }
-    return await res.status(200).json({allExpense: allExpense});
+    return await res.status(200).json({ allExpense: allExpense });
+}
+
+exports.expenseDetails = async (req, res, next) => {
+    const expenseId = req.params.expenseId;
+    let expense;
+    try {
+        expense = await Expense.findOne({ _id: expenseId });
+    } catch (err) {
+        err.statusCode = 500;
+        return next(err);
+    }
+    return await res.status(200).json({ expenseData: expense, message: 'expense data fetched successfully' });
 }
